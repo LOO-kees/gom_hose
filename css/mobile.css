@@ -1,0 +1,207 @@
+@charset "utf-8";
+
+/* 3. mobile해상도 영역일 경우 변경되는 서식 */
+@media screen and (max-width: 767px) {
+  /* 모바일 영역에서 가로크기를 100%로 채워줌 */
+  .header_inner,
+  .gnb > ul,
+  .f_lnb,
+  address,
+  .sns {
+    width: 100%; /* 모바일은 무조건 가로해상도 100%. 1200px준 곳에 다 설정한 것. */
+  }
+  header {
+    position: relative; /* 토글버튼, 검색버튼을 기준잡기 위해 */
+    width: 100%;
+  }
+  .header_inner {
+    height: 70px;
+    box-shadow: 0px 0px 3px rgb(63, 63, 63);
+    background-color: #fff;
+  }
+  h1 {
+    width: 100%;
+    text-align: center; /* 가운데 오게 하는 것 */
+    transform: none; /* 공통서식 j_common의 h1에 transform: translateY(20px);가 있어서 그걸 무력화 해준 것  */
+  }
+  h1 img {
+    width: 130px; /* 모바일 버전에서는 이미지가 작아짐 */
+    padding-top: 10px;
+  }
+
+  /* 모바일에서 보여지는 토글버튼, 검색버튼 공통서식 */
+  #t_btn,
+  #t_btn + i.fa-search {
+    position: absolute;
+    top: 21px;
+    color: #333;
+    display: block;
+    font-size: 2rem;
+  }
+
+  /* 좌측 토글버튼 */
+  #t_btn {
+    left: 14px;
+  }
+
+  /* 우측 토글버튼 */
+  #t_btn + i.fa-search {
+    right: 14px;
+  }
+
+  /* .lnb {
+    display: none;
+  }  이렇게 하면 안되는 거였다.*/
+  /* 메인내비게이션 */
+  .gnb {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    /* left: 0px; */
+    left: -100%;
+    top: 0px;
+    z-index: 10000;
+    transition: 0.5s;
+  }
+  /* 공통서식(j_common)에서 .gnb:hover {
+  height: 260px;
+} 이걸 줬으므로 여기에서는  .gnb:hover{height: 100%;} 로 무력화 */
+  .gnb:hover {
+    height: 100%;
+  }
+  .gnb > ul {
+    display: flex; /*가로*/
+    flex-direction: column;
+    padding-top: 120px;
+  }
+  .gnb li {
+    border-bottom: 1px solid #fff;
+  }
+  .gnb > ul > li {
+    text-align: left;
+  }
+  .gnb > ul > li a {
+    color: #ffffff;
+    font-size: 0.9rem; /* 1rem = 16 px */
+  }
+  .sub {
+    text-indent: 10px;
+    display: none;
+  }
+  .gnb > ul > li > a::after {
+    display: none;
+  } /* 공통서식의 .gnb > ul > li > a:hover 는 모바일에서는 밑줄이 보이지 않아도 되므로 숨겨준 것 */
+  .sub {
+    text-indent: 10px;
+    display: none;
+  }
+  /* 검색박스 */
+  #sh {
+    display: block;
+    position: absolute;
+    height: 30px;
+    top: -330px;
+    left: 30%;
+    background-color: #fff;
+    z-index: 10001;
+  }
+  /* 검색버튼 */
+  #sh + label {
+    position: absolute;
+    z-index: 10001;
+    color: #fff;
+    left: 66%;
+    top: -328px;
+  }
+  #sh + label i {
+    font-size: 1.6rem;
+  }
+  /* 닫기버튼 */
+  .gnb > label {
+    display: block;
+  }
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+    position: absolute;
+    right: 4%;
+    top: 21px;
+  }
+
+  /* 헤더 상단메뉴 login...... */
+  .lnb {
+    position: fixed;
+    width: 100%;
+    /* left: 0px; */
+    left: -100%;
+    top: 400px;
+    transition: 0.5s;
+    z-index: 10001;
+  }
+  .lnb ul {
+    display: block;
+    text-align: center;
+  }
+  .lnb ul > li {
+    display: inline-block;
+    width: 48%;
+    background: rgb(107, 107, 107);
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .lnb ul > li a {
+    display: block;
+    line-height: 300%;
+    color: #fff;
+    border-right: none;
+  }
+  /* 메인메뉴의 서브메뉴 있다는 화살표 표시 */
+  .gnb .fa-angle-down {
+    display: block;
+    float: right;
+    font-size: 1.2rem;
+    padding-top: 10px;
+  }
+  /* toggle버튼 클릭시 header */
+  #toggle:checked + header .gnb {
+    left: 0px;
+  }
+  #toggle:checked + header > .header_inner .lnb {
+    left: 0px;
+  }
+
+
+
+  /* 푸터서식 */
+  footer {
+  }
+  .f_lnb, address, .sns{
+    width:100%;
+  }
+  .f_lnb > ul {
+    justify-content: center;
+    flex-wrap: wrap; /* 콘텐츠 내용이 한줄을 벗어나면 다음줄로 내리기 */
+    padding: 6px 0px;
+  
+  }
+  .f_lnb > ul li{
+    margin:10px 0px;
+  }
+  .f_lnb > ul a{
+    padding: 16px 14px;
+    line-height:200%;
+  }
+  .sns {
+    padding: 20px 0px;
+  }
+  .sns > ul {
+    justify-content: center;
+  }
+  address {
+    text-align: center;
+  }
+}
+
+
+/* justify-content: wrap; 콘텐츠 내용이 한줄을 벗어나면 다음줄로 내리기 */
